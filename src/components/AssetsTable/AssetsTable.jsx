@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
+import { Assets } from './../../services';
+import { mock } from '../../../mock';
 
 class AssetsTable extends Component{
 
-  
+  getAssets = () =>{
+    Assets.get().then(data =>{
+      console.log('dsata' , data);
+    });
+  }
+
 
   render(){
+    this.getAssets();
     return(
       <Table responsive>
       <thead>
