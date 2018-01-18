@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import AssetsTable from './AssetsTable/AssetsTable';
 
 class App extends Component { 
   render() {
     return (
-      <div>Hello World</div>
+      <div>
+        <AssetsTable />
+      </div>
     );
   }
 }
