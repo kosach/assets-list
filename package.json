@@ -7,6 +7,7 @@
     "dev-server": "nodemon --exec babel-node src/server.js",
     "dev-client": "webpack -wd",
     "webpack": "webpack",
+    "start":"webpack &&  babel-node src/server.js",
     "test": "jest --runInBand --no-cache"
   },
   "author": "",
