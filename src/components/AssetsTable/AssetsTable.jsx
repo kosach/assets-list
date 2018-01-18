@@ -11,15 +11,7 @@ import { mock } from '../../../mock';
 
 //TODO add propTypes to components
 class AssetsTable extends Component{
-  componentDidMount(){
-    this.getAssets();
-  }
-  getAssets = () =>{
-    const { setAssets } = this.props.actions;
-    Assets.get().then(data =>{
-      setAssets(data);
-    });
-  }
+
 
 
   render(){

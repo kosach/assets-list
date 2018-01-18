@@ -1,5 +1,4 @@
 import React from 'react';
-
 const AssetsRow = ({ asset }) => {
   return (
     <tr>
@@ -13,3 +12,4 @@ const AssetsRow = ({ asset }) => {
 }
 
 export default AssetsRow;
+  
