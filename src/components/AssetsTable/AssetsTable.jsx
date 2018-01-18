@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import AssetRow from './AssetsRow';
 import * as assetsActions  from '../../actions/assets';
+import AssetsHeader from './AssetHeader';
 import { mock } from '../../../mock';
 
 
@@ -25,21 +26,13 @@ class AssetsTable extends Component{
     const { assets } = this.props;
     return(
       <Table responsive>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          assets && assets.map(asset => <AssetRow key={asset.id} asset={asset} />)
-        }
-      </tbody>
-    </Table>
+        <AssetsHeader />
+        <tbody>
+          {
+            assets && assets.map(asset => <AssetRow key={asset.id} asset={asset} />)
+          }
+        </tbody>
+      </Table>
     )
   }
 }
