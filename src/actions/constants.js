@@ -1,1 +1,1 @@
-export const GET_ASSETS = 'GET_ASSETS';
+export const SET_ASSETS = 'SET_ASSETS';

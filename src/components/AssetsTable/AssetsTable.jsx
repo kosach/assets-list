@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import { Assets } from './../../services';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import AssetRow from './AssetsRow';
+import * as assetsActions  from '../../actions/assets';
 import { mock } from '../../../mock';
 
-class AssetsTable extends Component{
 
+//TODO add propTypes to components
+class AssetsTable extends Component{
+  componentDidMount(){
+    this.getAssets();
+  }
   getAssets = () =>{
+    const { setAssets } = this.props.actions;
     Assets.get().then(data =>{
-      console.log('dsata' , data);
+      setAssets(data);
     });
   }
 
 
   render(){
-    this.getAssets();
+    const { assets } = this.props;
     return(
       <Table responsive>
       <thead>
@@ -23,42 +32,28 @@ class AssetsTable extends Component{
           <th>Table heading</th>
           <th>Table heading</th>
           <th>Table heading</th>
-          <th>Table heading</th>
-          <th>Table heading</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
+        {
+          assets && assets.map(asset => <AssetRow key={asset.id} asset={asset} />)
+        }
       </tbody>
     </Table>
     )
   }
 }
 
-export default AssetsTable;
+const mapStateToProps = (state) => ({
+  assets: state.assets,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  const actions = {...bindActionCreators(assetsActions, dispatch)};
+  return {
+    actions,
+  };
+};
+
+const MappedAssetsTable = connect(mapStateToProps, mapDispatchToProps)(AssetsTable);
+export default MappedAssetsTable;
