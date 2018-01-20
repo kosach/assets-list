@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Assets } from './../../services';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -8,12 +9,10 @@ import * as assetsActions  from '../../actions/assets';
 import AssetsHeader from './AssetHeader';
 import { mock } from '../../../mock';
 
-
-//TODO add propTypes to components
 class AssetsTable extends Component{
-
-
-
+  static propTypes = {
+    assets: PropTypes.arrayOf(PropTypes.object),
+  }
   render(){
     const { assets } = this.props;
     return(
@@ -33,12 +32,5 @@ const mapStateToProps = (state) => ({
   assets: state.assets,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  const actions = {...bindActionCreators(assetsActions, dispatch)};
-  return {
-    actions,
-  };
-};
-
-const MappedAssetsTable = connect(mapStateToProps, mapDispatchToProps)(AssetsTable);
+const MappedAssetsTable = connect(mapStateToProps)(AssetsTable);
 export default MappedAssetsTable;

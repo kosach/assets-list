@@ -2,6 +2,7 @@ import React, {  Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { FormControl } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import * as assetsActions  from '../../actions/assets';
 import orderBy from 'lodash/orderBy';
 import { Assets, filter } from './../../services';
@@ -9,7 +10,7 @@ import { Assets, filter } from './../../services';
 //TODO Add arrows of direction
 //TODO Create dto for manager sorting
 //TODO Add styles to header text when mouse on
-// Render header items with loop
+//TODO Render header items with loop
 
 class AssetsHeader extends Component{
   constructor(props){
@@ -19,6 +20,12 @@ class AssetsHeader extends Component{
       filterParams:{},
       tempArr:[],
     }
+  }
+  static propTypes = {
+    assets: PropTypes.arrayOf(PropTypes.object).isRequired,
+    actions: PropTypes.shape({
+      setAssets: PropTypes.func.isRequired,
+    }).isRequired
   }
 
   componentDidMount(){
