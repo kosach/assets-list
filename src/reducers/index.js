@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers, } from 'redux';
 import assets from './assetsReducer';
 
 const appReducer = combineReducers(
-  {
-    assets,
-  },
+    {
+        assets,
+    }
 );
 
 export default appReducer;

@@ -3,5 +3,5 @@ import filter from './filter';
 
 export {
     Assets,
-    filter
-  };
+    filter,
+};

@@ -8,6 +8,8 @@
     "dev-client": "webpack -wd",
     "webpack": "webpack",
     "start": "webpack &&  babel-node src/server.js",
+    "lint": "eslint src/**",
+    "lint-fix": "eslint --fix src/**",
     "test": "jest --runInBand --no-cache"
   },
   "author": "",
@@ -40,6 +42,7 @@
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-polyfill": "^6.26.0",
@@ -47,6 +50,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1",
     "jest": "^21.2.1"
   }
 }

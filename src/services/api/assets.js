@@ -1,20 +1,20 @@
-import { mock } from '../../../mock';
+import { mock, } from '../../../mock';
 
 class Assets {
   get = () =>{
-    const arr = [];
-    return new Promise(
-      (resolve, reject) => {
-        const subscription = mock.subscribe(val => { 
-          arr.push(val);
-        })
-          setTimeout(
-              () => {
-                subscription.unsubscribe()
-                  resolve(arr);
-              }, 1000);
-      }
-    );
+      const arr = [];
+      return new Promise(
+          (resolve) => {
+              const subscription = mock.subscribe(val => {
+                  arr.push(val);
+              });
+              setTimeout(
+                  () => {
+                      subscription.unsubscribe();
+                      resolve(arr);
+                  }, 1000);
+          }
+      );
   }
 }
 

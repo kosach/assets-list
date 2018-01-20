@@ -1,11 +1,11 @@
 import * as constants from '../actions/constants';
 
 export default (state, action) => {
-  switch(action.type){
+    switch(action.type){
     case constants.SET_ASSETS: {
-      return [...action.data];
+        return [...action.data,];
     }
     default:
-      return state || [];  
-  }
+        return state || [];
+    }
 };
